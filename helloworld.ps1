@@ -48,3 +48,32 @@ $ArrayList
 
 $ArrayList.Add("item10")
 $ArrayList
+
+$ArrayList | Where-Object { $_ -match 'item10'}
+
+'this is a simple string' -replace 'simple string',   'substituted string'
+
+Get-PSDrive
+
+$dirs = Get-ChildItem -recurse 2>&1
+
+$procs = Get-Process PowerShell
+$procs.GetType().Fullname
+
+
+function bar {
+    $procs = Get-Process svchost
+    "Returning svchost process objects"
+    return $procs
+}
+
+
+function LongNumericString {
+    $strBld = New-Object System.Text.StringBuilder
+    for($i = 0; $i -lt 20; $i++) {
+        [void]$strBld.Append($i)
+    }
+    $strBld.ToString();
+}
+
+LongNumericString
